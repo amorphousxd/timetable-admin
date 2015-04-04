@@ -1,4 +1,39 @@
 <template name="userLayout">
 
-    {{> yield region="content"}}
+    <div class="padding-20">
+
+        <div class="ui secondary pointing menu">
+            <a href="{{pathFor 'user' controller='home'}}" class="{{#if isUserHome}}active{{/if}} item" id="item">
+                <i class="home icon"></i> Главная
+            </a>
+            <a href="{{pathFor 'user' controller='generate'}}" class="{{#if isUserGenerate}}active{{/if}} item">
+                <i class="file text outline icon"></i> Создать расписание
+            </a>
+            <a href="{{pathFor 'user' controller='update'}}" class="{{#if isUserUpdate}}active{{/if}} item">
+                <i class="list icon"></i> Заполнить информацию
+            </a>
+            <a href="{{pathFor 'user' controller='other'}}" class="{{#if isUserOther}}active{{/if}} item">
+                <i class="diamond icon"></i> kanye west
+            </a>
+            <div class="right menu">
+                <div class="item">
+                    <div class="ui transparent icon input">
+                        <input type="text" placeholder="Search...">
+                        <i class="search link icon"></i>
+                    </div>
+                </div>
+                <a href="{{pathFor 'user' controller='logout'}}" class="ui item">
+                    Выйти
+                </a>
+            </div>
+        </div>
+
+        <div class="ui segment">
+            {{#if isUserHome}}{{> userHome}}{{/if}}
+            {{#if isUserGenerate}}{{> userGenerate}}{{/if}}
+            {{#if isUserUpdate}}{{> userUpdate}}{{/if}}
+            {{#if isUserOther}}{{> userOther}}{{/if}}
+        </div>
+    </div>
+
 </template>

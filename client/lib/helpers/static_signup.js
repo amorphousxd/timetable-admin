@@ -34,7 +34,7 @@ Template.staticSignup.events({
                             //Session.set('authAlert', 'Welcome, ' + user.profile.first_name + '!');
                             console.log(user);
                             if (!user.roles || user.roles.indexOf('admin') == -1) {
-                                Router.go('/user/' + user._id + '/home');
+                                Router.go('/user/home');
                             } else {
                                 Router.go('admin');
                             }
@@ -43,7 +43,7 @@ Template.staticSignup.events({
                     var user = Meteor.user();
                     //Session.set('authAlert', 'Welcome back, ' + user.profile.first_name + '!');
                     if (!user.roles || user.roles.indexOf('admin') == -1){
-                        Router.go('/user/'+user._id);
+                        Router.go('/user/home');
                     } else {
                         Router.go('admin');
                     }

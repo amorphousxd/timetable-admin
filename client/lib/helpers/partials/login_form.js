@@ -16,7 +16,7 @@ Template.loginForm.events({
                 var user = Meteor.user();
                 Session.set('authAlert', 'Welcome back, ' + user.profile.fullName + '!');
                 if (!user.roles || user.roles.indexOf('admin') == -1){
-                    Router.go('/user/'+user._id+'/home');
+                    Router.go('/user/home');
                 } else {
                     Router.go('admin');
                 }

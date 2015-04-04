@@ -9,3 +9,6 @@ insecure
 accounts-ui
 iron:router
 accounts-password
+semantic:ui-icon
+semantic:ui-menu
+semantic:ui-transition
