@@ -1,3 +1,25 @@
 <template name="userUpdate">
-    вйцвц
+    Ваша организация: <br>
+    {{#each organizations}}
+        {{name}}
+    {{/each}}
+    <br>
+    <div>
+        {{#if objects}}
+            Выберите объект для редактирования: <br>
+            <select class="ui dropdown">
+                <option value="">Объект</option>
+                {{#each objects}}
+                    <option value="{{index}}">{{name}}</option>
+                {{/each}}
+            </select>
+        {{else}}
+            Пока нет объектов
+        {{/if}}
+    </div>
+    <div id="addObject" class="ui button m-t-20">
+        <i class="plus icon"></i>
+        Добавить объект
+    </div>
+    {{> addObjectModal}}
 </template>

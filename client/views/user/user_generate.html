@@ -1,3 +1,31 @@
 <template name="userGenerate">
-    Тут короч делается расписание
+    <h3 class="ui block header">
+        Создание расписания
+    </h3>
+    <div class="ui top  segment">
+        {{#if faculties}}
+            Выберите факультет:<br>
+            {{#each faculties}}
+                <div class="ui checkbox faculty-checkbox">
+                    <input type="checkbox" name="fun">
+                    <label>{{name}}</label>
+                </div>
+            {{/each}}
+            <br>
+        {{/if}}
+        {{#if facultySelected}}
+
+            <div class="ui divider"></div>
+            {{#if groups}}
+                Выберите группы: <br>
+                {{#each groups}}
+                    <div class="ui checkbox">
+                        <input type="checkbox" name="fun">
+                        <label>{{name}}</label>
+                    </div>
+                    <br>
+                {{/each}}
+            {{/if}}
+        {{/if}}
+    </div>
 </template>

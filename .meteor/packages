@@ -12,3 +12,12 @@ accounts-password
 semantic:ui-icon
 semantic:ui-menu
 semantic:ui-transition
+semantic:ui-dropdown
+semantic:ui-button
+semantic:ui-modal
+semantic:ui-dimmer
+semantic:ui-header
+mizzao:jquery-ui
+semantic:ui-segment
+semantic:ui-checkbox
+semantic:ui-divider
