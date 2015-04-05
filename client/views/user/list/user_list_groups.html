@@ -1,0 +1,50 @@
+<template name="userListGroups">
+    <table class="ui compact celled definition table">
+        <thead>
+        <tr>
+            <th class="events-all">
+                <select id="faculties-dropdown" class="ui search dropdown">
+                    <option value="">Факультет</option>
+                    {{#each faculties}}
+                    <option value="{{name}}">{{name}}</option>
+                    {{/each}}
+                    <option value="ПМИ">ПМИ</option>
+                </select>
+            </th>
+            <th>Название</th>
+            <th>Кол-во студентов</th>
+            <th>Курс</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each groups}}
+        <tr>
+            <td class="collapsing">
+                <div class="ui fitted slider checkbox">
+                    <input type="checkbox"> <label></label>
+                </div>
+            </td>
+            <td>{{name}}</td>
+            <td>{{studentsCount}}</td>
+            <td>{{year}}</td>
+        </tr>
+        {{/each}}
+        </tbody>
+        <tfoot class="full-width">
+        <tr>
+            <th></th>
+            <th colspan="4">
+                <div class="ui right floated small primary labeled icon button">
+                    <i class="user icon"></i> Добавить группу
+                </div>
+                <div class="ui small button">
+                    Удалить
+                </div>
+                <div class="ui small red disabled button">
+                    Удалить все
+                </div>
+            </th>
+        </tr>
+        </tfoot>
+    </table>
+</template>
