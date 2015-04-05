@@ -1,53 +1,34 @@
 <template name="userUpdate">
-    <!--Ваша организация: <br>
-    {{#each organizations}}
-        {{name}}
-    {{/each}}-->
-    <!--Редактировать:
-    <div class="ui divider"></div>-->
+
     <div class="ui inverted menu no-bottom-border-radius m-b-0">
-        <a href="{{pathFor 'user' controller='update' model='objects'}}" class="{{#if isUserListObjects}}active{{/if}} item">
+        <a href="{{pathFor 'user' controller='update' model='objects'}}" class="{{#if isUserWorkObjects}}active{{/if}} item">
             <i class="building icon"></i> Объекты
         </a>
-        <a href="{{pathFor 'user' controller='update' model='auditories'}}" class="{{#if isUserListAuditories}}active{{/if}} item">
-            <i class="student icon"></i> Аудитории
+        <a href="{{pathFor 'user' controller='update' model='auditories'}}" class="{{#if isUserWorkAuditories}}active{{/if}} item">
+            <i class="cube icon"></i> Аудитории
         </a>
         <a  href="{{pathFor 'user' controller='update' model='groups'}}" class="{{#if isUserWorkGroups}}active{{/if}} item">
             <i class="group icon"></i> Группы
         </a>
+        <a  href="{{pathFor 'user' controller='update' model='courses'}}" class="{{#if isUserWorkCourses}}active{{/if}} item">
+            <i class="student icon"></i> Учебные курсы
+        </a>
     </div>
+
     <div class="ui top segment no-top-border-radius m-t-0">
 
         {{#if isUserListObjects}}{{> userListObjects}}{{/if}}
         {{#if isUserListAuditories}}{{> userListAuditories}}{{/if}}
         {{#if isUserListGroups}}{{> userListGroups}}{{/if}}
         {{#if isUserListFaculties}}{{> userListFaculties}}{{/if}}
+        {{#if isUserListCourses}}{{> userListCourses}}{{/if}}
+
         {{#if isUserUpdateObjects}}{{> userUpdateObjects}}{{/if}}
         {{#if isUserUpdateAuditories}}{{> userUpdateAuditories}}{{/if}}
         {{#if isUserUpdateGroups}}{{> userUpdateGroups}}{{/if}}
         {{#if isUserUpdateFaculties}}{{> userUpdateFaculties}}{{/if}}
+        {{#if isUserUpdateCourses}}{{> userUpdateCourses}}{{/if}}
 
     </div>
-    <!--<br>
-    <div>
-        {{#if objects}}
-            Выберите объект для редактирования: <br>
-            <select class="ui dropdown">
-                <option value="">Объект</option>
-                {{#each objects}}
-                    <option value="{{index}}">{{name}}</option>
-                {{/each}}
-            </select>
-        {{else}}
-            Пока нет объектов
-        {{/if}}
-    </div>
-    <div id="addObject" class="ui button m-t-20">
-        <i class="plus icon"></i>
-        Добавить объект
-    </div>
-    {{> addObjectModal}}-->
-    <div>
 
-    </div>
 </template>

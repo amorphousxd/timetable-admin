@@ -1,0 +1,111 @@
+<template name="userUpdateCourses">
+    <div class="text-center">
+        <div class="update-form full-width margin-auto">
+            <!-- Header -->
+            <h3 class="m-b-0"> Редактирование учебного курса </h3><br>
+            <input id="courseId" type="hidden" value="{{course._id}}">
+
+            <div class="ui horizontal divider">
+                <i class="student icon"></i>
+            </div>
+            <!-- Header -->
+
+            <!-- Content -->
+
+            <div class="ui labeled input full-width">
+                <div class="ui teal label">
+                    Название
+                </div>
+                <input id="course-name" type="text" value="{{course.name}}">
+            </div>
+
+            <div class="ui divider"></div>
+
+            <div class="ui labeled input full-width">
+                <div class="ui teal label">
+                    Преподаватели
+                </div>
+                <div class="ui floating dropdown button full-width no-left-border-radius">
+                    <span class="text">Нажмите, чтобы выбрать</span>
+                    <div class="menu">
+                        <div class="divider"></div>
+                        {{#each teachersOfCourse course.teachers}}
+                        <div class="item">
+                            {{#if checked}}
+                                <div class="ui checkbox">
+                                    <input id="teacher_{{_id}}" type="checkbox" checked value="{{fio}}">
+                                    <label>{{fio}}</label>
+                                </div>
+                            {{else}}
+                                <div class="ui checkbox">
+                                    <input id="teacher_{{_id}}" type="checkbox" value="{{fio}}">
+                                    <label>{{fio}}</label>
+                                </div>
+                            {{/if}}
+                            <input type="hidden" value="{{fio}}-{{_id}}">
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui divider"></div>
+
+            <div class="ui labeled input full-width">
+                <div class="ui teal label">
+                    Группы
+                </div>
+                <div class="ui floating dropdown button full-width no-left-border-radius">
+                    <span class="text">Нажмите, чтобы выбрать</span>
+                    <div class="menu">
+                        <div class="divider"></div>
+                        {{#each groupsOfCourse course.groups}}
+                            <div class="item">
+                                {{#if checked}}
+                                    <div class="ui checkbox">
+                                        <input id="group_{{_id}}" type="checkbox" checked value="{{name}}">
+                                        <label>{{name}}</label>
+                                    </div>
+                                {{else}}
+                                    <div class="ui checkbox">
+                                        <input id="group_{{_id}}" type="checkbox" value="{{name}}">
+                                        <label>{{name}}</label>
+                                    </div>
+                                {{/if}}
+                                <input type="hidden" value="{{_id}}">
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui horizontal divider">
+                <i class="angle down icon"></i>
+            </div>
+            <!-- Content -->
+
+            <!-- Messages -->
+            <div id="error-message" class="ui icon error hidden message">
+                <i class="attention circle icon"></i>
+                <div class="content">
+                    <div class="header">Ошибка</div>
+                    <p>Проверьте введенные вами данные</p>
+                </div>
+            </div>
+            <div id="success-message" class="ui success hidden message">
+                <i class="close icon"></i>
+                <div class="header">
+                    Изменения успешно сохранены.
+                </div>
+            </div>
+            <!-- Messages -->
+
+            <div class="ui buttons">
+                <div id="cancelButton" class="ui black button">Отмена</div>
+                <div class="or" data-text=" "></div>
+                <div id="saveButton" class="ui teal button">Сохранить</div>
+            </div>
+
+        </div> <!-- End update form -->
+    </div>
+</template>

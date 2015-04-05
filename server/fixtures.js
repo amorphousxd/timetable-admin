@@ -1,12 +1,14 @@
 Meteor.startup(function () {
 
+    // Initial database content
+
     if (Meteor.users.find().count() === 0) {
         var _id = Accounts.createUser({
             email: '123@123.ru',
             username: '123',
             password: '123123',
             profile: {
-                'name': 'kany west',
+                'name': 'kanye west',
                 'phone': '123',
                 organization: 'HSE',
                 'fields': {
@@ -20,14 +22,16 @@ Meteor.startup(function () {
             }
         });
     }
+
     if (Organizations.find().count() === 0) {
         Organizations.insert({
             name: 'HSE'
         });
     }
 
+    var organizationId = Organizations.findOne({name: 'HSE'})._id;
+
     if(Objects.find().count() === 0){
-        var organizationId = Organizations.findOne({name: 'HSE'})._id;
         var objectId = Objects.insert({
             organization: organizationId,
             name: 'МП',
@@ -35,6 +39,21 @@ Meteor.startup(function () {
         });
         //var object = Objects.findOne({_id: objectId});
         //Organizations.update({name: 'HSE'}, {$push: {objects: objectId}});
+    }
+
+    if(Teachers.find().count() === 0){
+        Teachers.insert({
+            fio: 'Клышинский Эдуард Станиславович',
+            organization: organizationId
+        });
+        Teachers.insert({
+            fio: 'Востриков Александр Владимирович',
+            organization: organizationId
+        });
+        Teachers.insert({
+            fio: 'Скок Борис Викторович',
+            organization: organizationId
+        });
     }
 
     if(Elements.find().count() === 0){
@@ -46,17 +65,18 @@ Meteor.startup(function () {
     }
 
     if(Faculties.find().count() === 0){
-        var organizationId = Organizations.findOne({name: 'HSE'})._id;
         Faculties.insert({
             organization: organizationId,
-            name: 'ФИТиВТ'
+            name: 'ФИТиВТ',
+            type: 'IT'
         })
     }
+
     if(Faculties.find().count() < 2){
-        var organizationId = Organizations.findOne({name: 'HSE'})._id;
         Faculties.insert({
             organization: organizationId,
-            name: 'ПМИ'
+            name: 'ПМИ',
+            type: 'IT'
         })
     }
 
@@ -82,5 +102,28 @@ Meteor.startup(function () {
         })
     }
 
+    if(Courses.find().count() === 0){
+        var teacherIds = Teachers.find({organization: organizationId}).map(function(teacher){
+            return teacher._id;
+        });
+        var facultiesIds = Faculties.find({organization: organizationId}).map(function(faculty){
+            return faculty._id;
+        });
+        var groupIds = Groups.find({faculty:{$in: facultiesIds}}).map(function(group){
+            return group._id;
+        });
+        Courses.insert({
+            name: 'Инструментальные что-то программирования',
+            hours: {
+                total: 120,
+                lab: 60,
+                practise: 40,
+                lecture: 20
+            },
+            teachers: teacherIds,
+            groups: groupIds,
+            organization: organizationId
+        })
+    }
 
 });

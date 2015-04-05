@@ -43,10 +43,16 @@ Meteor.startup(function() {
         return Router.current().params.controller && Router.current().params.controller === 'update' && Router.current().params.model === 'groups' && Router.current().params.id == null;
     });
     Template.registerHelper('isUserListAuditories', function () {
-        return Router.current().params.controller && Router.current().params.controller === 'update' && Router.current().params.model === 'auditories'
+        return Router.current().params.controller && Router.current().params.controller === 'update' && Router.current().params.model === 'auditories' && Router.current().params.id == null;
     });
     Template.registerHelper('isUserListObjects', function () {
-        return Router.current().params.controller && Router.current().params.controller === 'update' && Router.current().params.model === 'objects'
+        return Router.current().params.controller && Router.current().params.controller === 'update' && Router.current().params.model === 'objects' && Router.current().params.id == null;
+    });
+    Template.registerHelper('isUserListFaculties', function () {
+        return Router.current().params.controller && Router.current().params.controller === 'update' && Router.current().params.model === 'faculties' && Router.current().params.id == null;
+    });
+    Template.registerHelper('isUserListCourses', function () {
+        return Router.current().params.controller && Router.current().params.controller === 'update' && Router.current().params.model === 'courses' && Router.current().params.id == null;
     });
 
     // Update
@@ -67,9 +73,29 @@ Meteor.startup(function() {
         return Router.current().params.controller && Router.current().params.controller === 'update' && Router.current().params.model === 'faculties' && Router.current().params.id != null;
     });
 
+    Template.registerHelper('isUserUpdateCourses', function () {
+        return Router.current().params.controller && Router.current().params.controller === 'update' && Router.current().params.model === 'courses' && Router.current().params.id != null;
+    });
+
     // Work
 
     Template.registerHelper('isUserWorkGroups', function () {
         return Router.current().params.controller && Router.current().params.controller === 'update' && Router.current().params.model === 'groups';
+    });
+
+    Template.registerHelper('isUserWorkAuditories', function () {
+        return Router.current().params.controller && Router.current().params.controller === 'update' && Router.current().params.model === 'auditories';
+    });
+
+    Template.registerHelper('isUserWorkObjects', function () {
+        return Router.current().params.controller && Router.current().params.controller === 'update' && Router.current().params.model === 'objects';
+    });
+
+    Template.registerHelper('isUserWorkFaculties', function () {
+        return Router.current().params.controller && Router.current().params.controller === 'update' && Router.current().params.model === 'faculties';
+    });
+
+    Template.registerHelper('isUserWorkCourses', function () {
+        return Router.current().params.controller && Router.current().params.controller === 'update' && Router.current().params.model === 'courses';
     });
 });

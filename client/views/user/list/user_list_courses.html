@@ -1,0 +1,58 @@
+<template name="userListCourses">
+    <table class="ui compact celled structured table">
+        <thead>
+        <tr>
+            <th rowspan="2"></th>
+            <th rowspan="2">Название</th>
+            <th rowspan="2">Группы</th>
+            <th rowspan="2">Преподаватели</th>
+            <th colspan="3">Часы</th>
+            <th rowspan="2"></th>
+        </tr>
+        <tr>
+            <th>Л</th>
+            <th>ПЗ</th>
+            <th>ЛР</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each courses}}
+            <tr>
+                <td class="collapsing">
+                    <div class="ui fitted toggle checkbox float-right">
+                        <input id="checkbox_{{_id}}" type="checkbox"><label></label>
+                        <input id="group_{{_id}}" type="hidden" value="{{_id}}">
+                    </div>
+                </td>
+                <td>{{name}}</td>
+                <td>{{groupsOfCourse groups}}</td>
+                <td>{{teachersOfCourse teachers}}</td>
+                <td>{{hours.lecture}}</td>
+                <td>{{hours.practise}}</td>
+                <td>{{hours.lab}}</td>
+                <td>
+                    <a href="{{pathFor 'user' controller='update' model='courses' id=this._id }}" class="ui button">
+                        Редактировать
+                    </a>
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+        <tfoot class="full-width">
+        <tr>
+            <th></th>
+            <th colspan="7">
+                <div id="addButton" class="ui right floated small primary labeled icon button">
+                    <i class="plus icon"></i> Добавить курс
+                </div>
+                <div id="deleteSelected" class="ui small {{#if noChecked}}disabled{{/if}} button">
+                    Удалить выбранные
+                </div>
+                <div class="ui small red disabled button">
+                    Удалить все
+                </div>
+            </th>
+        </tr>
+        </tfoot>
+    </table>
+</template>
