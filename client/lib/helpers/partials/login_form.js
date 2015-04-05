@@ -13,7 +13,6 @@ Template.loginForm.events({
             Meteor.loginWithPassword(email, pass, function(err) {
                 if (err) return Session.set('authAlert', 'Неверно введен email / пароль');
                 var user = Meteor.user();
-                Session.set('authAlert', 'Welcome back, ' + user.profile.fullName + '!');
                 if (!user.roles || user.roles.indexOf('admin') == -1){
                     Router.go('/user/home');
                 } else {

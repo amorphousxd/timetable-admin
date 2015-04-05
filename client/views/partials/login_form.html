@@ -5,10 +5,16 @@
         </div>
         <p>{{alert}}</p>
         <form>
-            <input type="email" name="email" placeholder="Email address" id="login-email">
-            <input type="password" name="password" placeholder="Password" id="login-pass">
-            <button id="login-button" type="submit" class="my-button">Войти</button> <br>
-            <button id="test-user" type="button" class="my-button">Войти как тестовый пользователь</button>
+            <div class="ui input">
+                <input id="login-email" name="email" type="email" placeholder="Email">
+            </div>
+            <div class="ui input m-t-10">
+                <input id="login-pass" type="password" placeholder="Пароль">
+            </div>
+            <button id="login-button" type="submit" class="medium ui black button m-t-10">Войти</button>
+            <div id="test-user" class="medium ui black basic button m-t-10">
+                Войти как тестовый пользователь
+            </div>
         </form>
         <div class="text-center">
             <a class="f-s-12" href="{{pathFor 'signup'}}">Зарегистрироваться</a>
