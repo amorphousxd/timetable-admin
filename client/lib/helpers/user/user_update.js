@@ -6,10 +6,9 @@ Template.userUpdate.helpers({
         });
     }
 });
+
 Template.userUpdate.events({
     'click #addObject': function(event, template){
-        $('#addObjectModal')
-            .modal('show')
-        ;
+        $('#addObjectModal').modal('show');
     }
-})
+});

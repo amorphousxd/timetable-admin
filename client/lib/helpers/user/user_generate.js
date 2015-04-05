@@ -10,6 +10,7 @@ Template.userGenerate.events({
         newChattersDep.changed();
     }
 });
+
 Template.userGenerate.helpers({
     objects: function() {
         return Objects.find({}).map(function(object, index) {

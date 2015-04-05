@@ -18,7 +18,7 @@ Template.staticSignup.events({
                             profile: {
                                 'name': fullName,
                                 'phone': phone,
-                                organization: organization,
+                                'organization': organization,
                                 'fields': {
                                     activity: [
                                         {
@@ -31,8 +31,6 @@ Template.staticSignup.events({
                         });
                         Meteor.loginWithPassword(email, pass, function (err) {
                             var user = Meteor.user();
-                            //Session.set('authAlert', 'Welcome, ' + user.profile.first_name + '!');
-                            console.log(user);
                             if (!user.roles || user.roles.indexOf('admin') == -1) {
                                 Router.go('/user/home');
                             } else {
@@ -41,7 +39,6 @@ Template.staticSignup.events({
                         })
                 } else {
                     var user = Meteor.user();
-                    //Session.set('authAlert', 'Welcome back, ' + user.profile.first_name + '!');
                     if (!user.roles || user.roles.indexOf('admin') == -1){
                         Router.go('/user/home');
                     } else {
