@@ -12,14 +12,16 @@
             <a href="{{pathFor 'user' controller='update'}}" class="{{#if isUserUpdate}}active{{/if}} item">
                 <i class="list icon"></i> Заполнить информацию
             </a>
-            <a href="{{pathFor 'user' controller='other'}}" class="{{#if isUserOther}}active{{/if}} item">
-                <i class="diamond icon"></i> kanye west
-            </a>
             <div class="right menu">
                 <div class="item">
                     <div class="ui transparent icon input">
                         <input type="text" placeholder="Search...">
                         <i class="search link icon"></i>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="ui transparent icon input">
+                        {{user.username}}
                     </div>
                 </div>
                 <a href="{{pathFor 'user' controller='logout'}}" class="ui item">

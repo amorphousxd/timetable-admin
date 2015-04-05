@@ -11,6 +11,12 @@ Template.staticSignup.events({
         if (isNotEmpty(username) && isNotEmpty(fullName) && isNotEmpty(phone) && isNotEmpty(organization) && isNotEmpty(email) && isEmail(email) && isNotEmpty(pass) && isValidPassword(pass) && isNotEmpty(pass2) && isValidPassword(pass2) && areValidPasswords(pass, pass2)) {
             Meteor.loginWithPassword(email, pass, function(err) {
                 if (err) {
+                    Meteor.call('getOrganizationId', organization, function(err, id){
+                        if(id == null){
+                            Organizations.insert({
+                                name: organization
+                            })
+                        }
                         Accounts.createUser({
                             email: email,
                             username: username,
@@ -37,6 +43,7 @@ Template.staticSignup.events({
                                 Router.go('admin');
                             }
                         })
+                    });
                 } else {
                     var user = Meteor.user();
                     if (!user.roles || user.roles.indexOf('admin') == -1){

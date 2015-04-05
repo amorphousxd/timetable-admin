@@ -6,3 +6,6 @@ Template.userLayout.rendered = function() {
 Template.userLayout.events({
 
 });
+
+Template.userLayout.helpers({
+});

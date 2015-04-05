@@ -1,13 +1,14 @@
 <template name="userGenerate">
-    <h3 class="ui block header">
+    <h3 class="ui block black attached label">
         Создание расписания
     </h3>
-    <div class="ui top segment">
+    <div class="m-t-20">
         {{#if faculties}}
-            Выберите факультет:<br>
+            <br>Выберите факультет:
+            <div class="ui divider"></div>
             {{#each faculties}}
                 <div class="ui checkbox faculty-checkbox">
-                    <input type="checkbox" name="fun">
+                    <input id="faculty_{{_id}}" type="checkbox" name="fun">
                     <label>{{name}}</label>
                 </div>
             {{/each}}
@@ -17,14 +18,23 @@
             <div class="ui divider"></div>
             {{#if groups}}
                 Выберите группы: <br>
-                {{#each groups}}
-                    <div class="ui checkbox">
-                        <input type="checkbox" name="fun">
-                        <label>{{name}}</label>
-                    </div>
-                    <br>
-                {{/each}}
+                <table class="ui compact celled definition table">
+                    <tbody>
+                    {{#each groups}}
+                        <tr>
+                            <td class="collapsing">
+                                <div class="ui fitted toggle checkbox float-right">
+                                    <input id="checkbox_{{_id}}" type="checkbox"><label></label>
+                                    <input id="group_{{_id}}" type="hidden" value="{{_id}}">
+                                </div>
+                            </td>
+                            <td>{{name}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
             {{/if}}
+
         {{/if}}
     </div>
 </template>

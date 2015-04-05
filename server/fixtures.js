@@ -22,9 +22,7 @@ Meteor.startup(function () {
     }
     if (Organizations.find().count() === 0) {
         Organizations.insert({
-            name: 'HSE',
-            groups: [],
-            objects: []
+            name: 'HSE'
         });
     }
 

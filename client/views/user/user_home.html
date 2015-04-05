@@ -2,4 +2,18 @@
 
     <!--<div class="content" style="padding: 20px">
     </div>-->
+    <div class="home text-center">
+        <div class="margin-auto">
+            <h2>Ваша организация</h2>
+            <div class="ui horizontal margin-auto" style="font-size: 22px; max-width: 600px">
+                {{organization.name}}
+            </div>
+            <h3>Вы можете</h3>
+            <a href="{{pathFor 'user' controller='update'}}" class="ui black button">Заполнить информацию</a>
+            <div class="ui horizontal divider margin-auto">
+                ИЛИ
+            </div>
+            <a href="{{pathFor 'user' controller='generate'}}" class="ui teal button">Сгенерировать расписание</a>
+        </div>
+    </div>
 </template>

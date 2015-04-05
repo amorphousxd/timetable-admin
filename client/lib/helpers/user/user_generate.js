@@ -1,13 +1,14 @@
-var newChattersDep = new Tracker.Dependency();
+var facultiesDep = new Tracker.Dependency();
 
 Template.userGenerate.events({
     'click #generateButton': function(event, template){
+
     },
     'click .checkbox': function(event, template){
         event.preventDefault();
         var checkbox = $(event.currentTarget).find('input[type="checkbox"]');
         checkbox.prop('checked', !checkbox.prop('checked'));
-        newChattersDep.changed();
+        facultiesDep.changed();
     }
 });
 
@@ -19,10 +20,15 @@ Template.userGenerate.helpers({
         });
     },
     groups: function(){
-        return Groups.find();
+        facultiesDep.depend()
+        var idList = [];
+        $('input:checked').each(function(index, element){
+            idList.push($(element).attr('id').split('_')[1]);
+        });
+        return Groups.find({faculty: {$in: idList}});
     },
     facultySelected: function(){
-        newChattersDep.depend();
+        facultiesDep.depend();
         return $('.faculty-checkbox input:checkbox:checked').length;
     }
 });
