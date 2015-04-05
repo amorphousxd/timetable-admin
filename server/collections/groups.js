@@ -14,8 +14,8 @@ Meteor.publish("userGroups", function(userId){
     if(this.userId === user._id){
         // then we return the corresponding full document via a cursor
         var organizationId = Organizations.findOne({name: user.profile.organization})._id;
-        var facultyId = Faculties.findOne({organization: organizationId})._id;
-        return Groups.find({faculty: facultyId});
+        var facultyIdList = Faculties.find({organization: organizationId}).fetch().map(function(e){ return e._id; });
+        return Groups.find({faculty: {$in: facultyIdList}});
     }
     else{
         // if we are viewing only the public part, strip the "profile"

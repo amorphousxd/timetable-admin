@@ -60,7 +60,10 @@ semantic:ui-divider@1.11.6
 semantic:ui-dropdown@1.11.6
 semantic:ui-header@1.11.6
 semantic:ui-icon@1.11.6
+semantic:ui-input@1.11.6
+semantic:ui-label@1.11.6
 semantic:ui-menu@1.11.6
+semantic:ui-message@1.11.6
 semantic:ui-modal@1.11.6
 semantic:ui-segment@1.11.6
 semantic:ui-table@1.11.6

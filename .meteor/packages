@@ -22,3 +22,6 @@ semantic:ui-segment
 semantic:ui-checkbox
 semantic:ui-divider
 semantic:ui-table
+semantic:ui-label
+semantic:ui-input
+semantic:ui-message

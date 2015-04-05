@@ -54,6 +54,13 @@ Meteor.startup(function () {
             name: 'ФИТиВТ'
         })
     }
+    if(Faculties.find().count() < 2){
+        var organizationId = Organizations.findOne({name: 'HSE'})._id;
+        Faculties.insert({
+            organization: organizationId,
+            name: 'ПМИ'
+        })
+    }
 
     if(Groups.find().count() < 2){
         var facultyId = Faculties.findOne({name: 'ФИТиВТ'})._id;

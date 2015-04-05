@@ -7,6 +7,12 @@
 .m-t-0{
     margin-top: 0 !important;
 }
+.m-t-5{
+    margin-top: 5px !important;
+}
+.m-t-10{
+    margin-top: 10px !important;
+}
 .no-bottom-border-radius{
     border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
@@ -15,6 +21,23 @@
     border-top-left-radius: 0 !important;
     border-top-right-radius: 0 !important;
 }
+.no-left-border-radius{
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
 .events-all{
     pointer-events: all !important;
+}
+.text-center{
+    text-align: center !important;
+}
+.full-width{
+    width: 100%;
+}
+.margin-auto{
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.height-41{
+    height: 41px !important;
 }

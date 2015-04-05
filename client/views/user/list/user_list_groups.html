@@ -4,16 +4,15 @@
         <tr>
             <th class="events-all">
                 <select id="faculties-dropdown" class="ui search dropdown">
-                    <option value="">Факультет</option>
                     {{#each faculties}}
-                    <option value="{{name}}">{{name}}</option>
+                        <option value="{{name}}">{{name}}</option>
                     {{/each}}
-                    <option value="ПМИ">ПМИ</option>
                 </select>
             </th>
             <th>Название</th>
             <th>Кол-во студентов</th>
             <th>Курс</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -27,6 +26,11 @@
             <td>{{name}}</td>
             <td>{{studentsCount}}</td>
             <td>{{year}}</td>
+            <td>
+                <a href="{{pathFor 'user' controller='update' model='groups' id=this._id }}" class="ui button">
+                    Редактировать
+                </a>
+            </td>
         </tr>
         {{/each}}
         </tbody>
@@ -34,8 +38,8 @@
         <tr>
             <th></th>
             <th colspan="4">
-                <div class="ui right floated small primary labeled icon button">
-                    <i class="user icon"></i> Добавить группу
+                <div id="addButton" class="ui right floated small primary labeled icon button">
+                    <i class="plus icon"></i> Добавить группу
                 </div>
                 <div class="ui small button">
                     Удалить

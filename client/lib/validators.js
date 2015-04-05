@@ -19,6 +19,10 @@ isEmail = function(value) {
   return false;
 };
 
+isPhoneNumber = function(value){
+    return true;
+};
+
 isValidPassword = function(password) {
   if (password.length < 6) {
     Session.set('authAlert', 'Your password should be 6 characters or longer.');

@@ -114,3 +114,17 @@ display: block;
 .content{
     max-width: 93% !important;
 }
+.update-form{
+    min-width: 500px;
+    max-width: 80%;
+}
+.update-form .label{
+    min-width: 200px;
+}
+.update-form .buttons .button{
+    min-width: 200px;
+}
+.update-form .message {
+    width: auto !important;
+    text-align: left;
+}
